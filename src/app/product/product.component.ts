@@ -11,6 +11,7 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
+  dataLoaded=false;
 
   productResponseModel: ProductResponseModel = {
     data: this.products,
@@ -25,6 +26,7 @@ export class ProductComponent implements OnInit {
   getProducts() {
     this.productService.getProducts().subscribe(response=>{
       this.products = response.data;
+      this.dataLoaded = true;
     })
   }
 }
