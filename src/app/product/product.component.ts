@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
-import { HttpClient } from '@angular/common/http';
-import { ProductResponseModel } from '../models/productResponseModel';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -13,11 +11,6 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   dataLoaded=false;
 
-  productResponseModel: ProductResponseModel = {
-    data: this.products,
-    message: '',
-    succes: true,
-  };
   constructor(private productService:ProductService) {}
 
   ngOnInit(): void {
