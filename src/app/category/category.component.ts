@@ -20,4 +20,7 @@ export class CategoryComponent implements OnInit {
       this.categories = response.data;
     })
   }
+  setCurrentCategory(category:Category){
+    console.log(category.categoryName)
+  }
 }
