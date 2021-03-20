@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from '../models/product';
+import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -12,12 +13,13 @@ import { ProductService } from '../services/product.service';
 export class ProductComponent implements OnInit {
   products: Product[] = [];
   dataLoaded = false;
-  filterText="";
+  filterText = '';
 
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private cartService:CartService
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +45,8 @@ export class ProductComponent implements OnInit {
         this.dataLoaded = true;
       });
   }
-  addToCart(product:Product){
-    this.toastrService.success("Sepete Eklendi",product.productName)
+  addToCart(product: Product) {
+    this.toastrService.success('Sepete Eklendi', product.productName);
+    this.cartService.addToCart(product)
   }
 }
