@@ -4,7 +4,7 @@
 
 <div class="mb-3">
   <label for="filterText" class="form-label">Ürün ara</label>
-  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" 
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
   placeholder="arama ifadesi giriniz">
 </div>
 <div *ngIf="filterText.length>2" class="alert alert-success">
@@ -31,9 +31,9 @@
       <td>{{ product.unitPrice |currency }}</td>
       <td>{{ product.unitPrice |vatAdded:18 | currency }}</td>
       <td>{{ product.unitsInStock }}</td>
-      <td><button (click)="addToCart(product)" 
-        type="button" class="btn btn-success">Sepete ekle</button></td>
+      <td><button (click)="addToCart(product)"
+        type="button" class="btn btn-dark">Sepete ekle</button></td>
     </tr>
   </tbody>
-  
+
 </table>
