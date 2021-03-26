@@ -10,7 +10,7 @@ import { ResponseModel } from '../models/responseModel';
 })
 export class ProductService {
 
-  apiUrl = 'https://localhost:44393/api/';
+  apiUrl = 'https://localhost:44314/api/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,6 +23,7 @@ export class ProductService {
     let newPath = this.apiUrl + "products/getbycategory?categoryId="+categoryId
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
   }
+
   add(product:Product):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"products/add",product)
   }
